@@ -44,6 +44,7 @@
 #include <chemkit/bondpredictor.h>
 #include <chemkit/graphicscamera.h>
 #include <chemkit/graphicsmaterial.h>
+#include <chemkit/partialchargemodel.h>
 
 #include "buildertool.h"
 #include "navigatetool.h"
@@ -255,8 +256,6 @@ void BuilderWindow::showPymolSES(bool show)
     if (m_showPymolSES) {
         if (!m_pymolSESItem) {
             m_pymolSESItem = new chemkit::GraphicsPymolSurfaceItem(m_molecule.get(), chemkit::GraphicsPymolSurfaceItem::SolventTypeExcluded);
-            //m_pymolSESItem->setColorMap(boost::make_shared<chemkit::AtomColorMap>(chemkit::AtomColorMap::PymolColorScheme));
-            m_pymolSESItem->setColorMode(chemkit::GraphicsPymolSurfaceItem::ElectrostaticPotential);
             m_pymolSESItem->setOpacity(1.f);
             ui->graphicsView->addItem(m_pymolSESItem);
         } else {
